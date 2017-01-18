@@ -7,6 +7,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if(playerThrow > cpuThrow){
                     playerPoints++;
+                }
+
+                if(playerThrow == cpuThrow) {
+                    Toast.makeText(MainActivity.this, "Draw!", Toast.LENGTH_SHORT).show();
                 }
 
                 tv_cpu.setText("CPU: " + cpuPoints);
