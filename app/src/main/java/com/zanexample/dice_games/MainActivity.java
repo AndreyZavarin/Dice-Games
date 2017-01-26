@@ -2,7 +2,9 @@ package com.zanexample.dice_games;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+/*
         iv_cpu = (ImageView) findViewById(R.id.iv_cpu);
         iv_player = (ImageView) findViewById(R.id.iv_player);
 
@@ -35,11 +38,15 @@ public class MainActivity extends AppCompatActivity {
         iv_player.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int cpuThrow = rndm.nextInt(6) + 1;
                 int playerThrow = rndm.nextInt(6) + 1;
 
-                setImageCPU(cpuThrow);
-                setImagePlayer(playerThrow);
+
+                setImage(cpuThrow, iv_cpu);
+                setImage(playerThrow, iv_player);
+                //setImageCPU(cpuThrow);
+              //  setImagePlayer(playerThrow);
 
                 if(cpuThrow > playerThrow){
                     cpuPoints++;
@@ -59,11 +66,36 @@ public class MainActivity extends AppCompatActivity {
                 Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
                 iv_cpu.startAnimation(rotate);
                 iv_player.startAnimation(rotate);
+
             }
-        });
+        });*/
 
     }
 
+/*
+    public void setImage(int num, ImageView imageView ) {
+        switch (num){
+            case 1:
+                imageView.setImageResource(R.drawable.ir_01);
+                break;
+            case 2:
+                imageView.setImageResource(R.drawable.ir_02);
+                break;
+            case 3:
+                imageView.setImageResource(R.drawable.ir_03);
+                break;
+            case 4:
+                imageView.setImageResource(R.drawable.ir_04);
+                break;
+            case 5:
+                imageView.setImageResource(R.drawable.ir_05);
+                break;
+            case 6:
+                imageView.setImageResource(R.drawable.ir_06);
+                break;
+        }
+    }
+*//*
     public void setImageCPU(int num){
         switch (num){
             case 1:
@@ -110,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-
+*/
 
 
 

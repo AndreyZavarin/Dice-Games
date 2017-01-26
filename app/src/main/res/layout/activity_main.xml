@@ -1,47 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
+    android:background="#000"
     android:orientation="vertical"
-    android:gravity="center"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:gravity="top"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:weightSum="1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/tv_cpu"
-        android:textSize="32dp"
-        android:text="CPU: 0"
-        android:layout_height="wrap_content" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:stretchColumns="*">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="@string/player"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="@string/score"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape" />
+        </TableRow>
+        <TableRow>
 
-    <ImageView
-        android:layout_width="100dp"
-        android:id="@+id/iv_cpu"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ir_06"
-        android:layout_height="100dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_name"
+                android:paddingLeft="20px"
+                android:textSize="@dimen/table_text"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:textSize="32dp"
-        android:text="VS"
-        android:layout_marginTop="40dp"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/player_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20px"
+                android:textSize="@dimen/table_text"
+                android:text="0"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+        </TableRow>
+    </TableLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="20px"
+        android:layout_weight="1.01">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:id="@+id/iv_player"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/ir_06"
-        android:layout_height="100dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:id="@+id/ir_01"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ir_01"
+            android:layout_height="100dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/tv_player"
-        android:textSize="32dp"
-        android:text="YOU: 0"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="100dp"
+            android:id="@+id/ir_02"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@id/ir_01"
+            android:src="@drawable/ir_02"
+            android:layout_height="100dp" />
 
+        <ImageView
+            android:layout_width="100dp"
+            android:id="@+id/ir_03"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@id/ir_02"
+            android:src="@drawable/ir_03"
+            android:layout_height="100dp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:id="@+id/ir_04"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/ir_01"
+            android:src="@drawable/ir_04"
+            android:layout_height="100dp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:id="@+id/ir_05"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/ir_01"
+            android:layout_toRightOf="@id/ir_04"
+            android:src="@drawable/ir_05"
+            android:layout_height="100dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:text="@string/button_throw"
+            android:layout_marginRight="40px"
+            android:background="@drawable/button_throw" />
+
+        <Button
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:text="@string/button_record"
+            android:layout_marginLeft="40px"
+            android:background="@drawable/button_record" />
+    </LinearLayout>
 </LinearLayout>
