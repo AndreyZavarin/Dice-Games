@@ -24,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
     Random rndm;
 
     int cube_1, cube_2, cube_3, cube_4, cube_5;
-
+    int scoreOfThrow=0;
+    int tmpForSearchCombs = 0;
     int[] valueOnCubes = {cube_1,cube_2,cube_3,cube_4,cube_5};
-
+    //?????????????????????????????
+    int[] counter = {0,0,0,0,0,0,0};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,23 +43,44 @@ public class MainActivity extends AppCompatActivity {
         rndm = new Random();
 
         final ImageView[] arrayOfIVCubes = {iv_ir_1, iv_ir_2, iv_ir_3, iv_ir_4, iv_ir_5};
-
+/*
         for(int i=0; i < valueOnCubes.length; i++){
             valueOnCubes[i] = rndm.nextInt(6) + 1;
         }
-
+*/
         doThrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
       //          int throwCubes = rndm.nextInt(6) + 1;
+                //setup values of cubes by random
                 for(int i=0; i < valueOnCubes.length; i++){
                     valueOnCubes[i] = rndm.nextInt(6) + 1;
                 }
+
+                //search of combs (to separate method)
+                //В массиве counter хранится количество повторений значений кубиков
+                for(int i=0; i<valueOnCubes.length; i++){
+                    counter[valueOnCubes[i]]++;
+                }
+                System.out.println("value\tcount");
+                for(int i=0; i<counter.length; i++){
+                    System.out.println(i + "\t" + counter[i]);
+                }
+              //zeroing array
+                for(int i=0; i<counter.length; i++){
+                   counter[i]=0;
+                }
+
                 setImage(valueOnCubes, arrayOfIVCubes);
 
             }
+
         });
+
+
+
     }
+
 
     public void setImage(int[] value, ImageView[] imageView){
         for(int i=0; i < value.length; i++){
