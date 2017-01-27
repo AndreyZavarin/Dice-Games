@@ -71,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
                    counter[i]=0;
                 }
 
+                Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+                for(int i=0; i< arrayOfIVCubes.length; i++){
+                    arrayOfIVCubes[i].startAnimation(rotate);
+                }
+
                 setImage(valueOnCubes, arrayOfIVCubes);
 
             }
@@ -106,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
     }
+
+
 }
 /*
         iv_cpu = (ImageView) findViewById(R.id.iv_cpu);
