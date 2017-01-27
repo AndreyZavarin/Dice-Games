@@ -110,6 +110,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnDoThrow"
             android:layout_width="300px"
             android:layout_height="wrap_content"
             android:text="@string/button_throw"
