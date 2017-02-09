@@ -1,7 +1,12 @@
 package com.zanexample.dice_games;
 
+import android.app.Activity;
+import android.content.res.AssetManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -12,7 +17,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
+
+import static com.zanexample.dice_games.R.anim.rotate;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,12 +40,15 @@ public class MainActivity extends AppCompatActivity {
     //int cpuPoints = 0, playerPoints = 0;
     Random rndm;
 
-    int cube_1, cube_2, cube_3, cube_4, cube_5;
-    int scoreOfThrow=0;
+   // String cube_1, cube_2, cube_3, cube_4, cube_5;
+    int scoreOfThrow = 0;
     int tmpForSearchCombs = 0;
-    int[] valueOnCubes = {cube_1,cube_2,cube_3,cube_4,cube_5};
+   // String[] valueOnCubes = {cube_1, cube_2, cube_3, cube_4, cube_5};
+    int[] valueOnCubes = new int[5];
+  //  String valueOnCubes = new String("");
     //?????????????????????????????
-    int[] counter = {0,0,0,0,0,0,0};
+    int[] counter = new int[7];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,14 +69,91 @@ public class MainActivity extends AppCompatActivity {
         }
 */
         doThrow.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
-      //          int throwCubes = rndm.nextInt(6) + 1;
+                //          int throwCubes = rndm.nextInt(6) + 1;
                 //setup values of cubes by random
-                for(int i=0; i < valueOnCubes.length; i++){
+                for (int i = 0; i < valueOnCubes.length; i++) {
+                   // valueOnCubes += String.valueOf(rndm.nextInt(6) + 1);
                     valueOnCubes[i] = rndm.nextInt(6) + 1;
                 }
 
+                //search of combs (to separate method)
+                //В массиве counter хранится количество повторений значений кубиков
+                for(int i=0; i<valueOnCubes.length; i++){
+                    counter[valueOnCubes[i]]++;
+                }
+
+
+                System.out.println("value\tcount");
+                for(int i=0; i<counter.length; i++){
+                    System.out.println(i + "\t" + counter[i]);
+                }
+                //zeroing array counter
+                for(int i=0; i<counter.length; i++){
+                    counter[i]=0;
+                }
+
+                Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+                for (int i = 0; i < arrayOfIVCubes.length; i++) {
+                    arrayOfIVCubes[i].startAnimation(rotate);
+                }
+
+                setImage(valueOnCubes, arrayOfIVCubes);
+              //  valueOnCubes = "";
+            }
+        });
+    }
+
+    public void setImage(int value[], ImageView[] imageView) {
+        for (int i = 0; i < value.length; i++) {
+            switch (value[i]) {
+                case 1:
+                    imageView[i].setImageResource(R.drawable.ir_01);
+                    break;
+                case 2:
+                    imageView[i].setImageResource(R.drawable.ir_02);
+                    break;
+                case 3:
+                    imageView[i].setImageResource(R.drawable.ir_03);
+                    break;
+                case 4:
+                    imageView[i].setImageResource(R.drawable.ir_04);
+                    break;
+                case 5:
+                    imageView[i].setImageResource(R.drawable.ir_05);
+                    break;
+                case 6:
+                    imageView[i].setImageResource(R.drawable.ir_06);
+                    break;
+            }
+        }
+    }
+
+
+}
+//                Map<String, Integer> combinaions = new ArrayMap<>();
+//                AssetManager assetManager = getAssets();
+//                try {
+//                    InputStream inputStream = assetManager.open("Combinations.txt");
+//                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+//                    String line;
+//                    while ((line = reader.readLine()) != null){
+//                        String[] tmp = line.split(" ");
+//
+//                        combinaions.put(tmp[0], Integer.valueOf(tmp[1]));
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                if(combinaions.containsKey(valueOnCubes)){
+//                    System.out.println(combinaions.get(valueOnCubes));
+//                }
+
+
+/*
                 //search of combs (to separate method)
                 //В массиве counter хранится количество повторений значений кубиков
                 for(int i=0; i<valueOnCubes.length; i++){
@@ -68,52 +165,9 @@ public class MainActivity extends AppCompatActivity {
                 }
               //zeroing array
                 for(int i=0; i<counter.length; i++){
-                   counter[i]=0;
-                }
+                   counter[i]=0;}
+*/
 
-                Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
-                for(int i=0; i< arrayOfIVCubes.length; i++){
-                    arrayOfIVCubes[i].startAnimation(rotate);
-                }
-
-                setImage(valueOnCubes, arrayOfIVCubes);
-
-            }
-
-        });
-
-
-
-    }
-
-
-    public void setImage(int[] value, ImageView[] imageView){
-        for(int i=0; i < value.length; i++){
-                switch (value[i]) {
-                    case 1:
-                        imageView[i].setImageResource(R.drawable.ir_01);
-                        break;
-                    case 2:
-                        imageView[i].setImageResource(R.drawable.ir_02);
-                        break;
-                    case 3:
-                        imageView[i].setImageResource(R.drawable.ir_03);
-                        break;
-                    case 4:
-                        imageView[i].setImageResource(R.drawable.ir_04);
-                        break;
-                    case 5:
-                        imageView[i].setImageResource(R.drawable.ir_05);
-                        break;
-                    case 6:
-                        imageView[i].setImageResource(R.drawable.ir_06);
-                        break;
-                }
-        }
-    }
-
-
-}
 /*
         iv_cpu = (ImageView) findViewById(R.id.iv_cpu);
         iv_player = (ImageView) findViewById(R.id.iv_player);
