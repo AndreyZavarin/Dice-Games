@@ -36,23 +36,23 @@ import static com.zanexample.dice_games.R.anim.rotate;
 
 public class MainActivity extends AppCompatActivity {
 
-    //ImageView iv_cpu, iv_player;
-    //TextView tv_cpu, tv_player;
-    ImageView iv_ir_1, iv_ir_2, iv_ir_3, iv_ir_4, iv_ir_5;
-    Button doThrow;
-    Button writeScore;
+    // String cube_1, cube_2, cube_3, cube_4, cube_5;
     //int cpuPoints = 0, playerPoints = 0;
     //Random rndm;
-    TextView tvPlayerCount;
-    TextView tvCurrentScore;
-    // String cube_1, cube_2, cube_3, cube_4, cube_5;
-    int scoreOfThrow = 0;
-    int tmpForSearchCombs = 0;
+    //ImageView iv_cpu, iv_player;
+    //TextView tv_cpu, tv_player;
     // String[] valueOnCubes = {cube_1, cube_2, cube_3, cube_4, cube_5};
     //int[] valueOnCubes = new int[5];
     //  String valueOnCubes = new String("");
     //?????????????????????????????
     //int[] counter = new int[7];
+    TextView tvPlayerCount;
+    int scoreOfThrow = 0;
+    int tmpForSearchCombs = 0;
+    ImageView iv_ir_1, iv_ir_2, iv_ir_3, iv_ir_4, iv_ir_5;
+    Button doThrow;
+    Button writeScore;
+    TextView tvCurrentScore;
 
     int defaultNumberOfCubes = 5;
     int numberOfCubes = defaultNumberOfCubes;
