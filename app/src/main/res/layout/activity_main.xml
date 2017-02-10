@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/table_text"
-                android:text="@string/player"
+                android:text="Текущий ход"
                 android:textAlignment="center"
                 android:textColor="#FFF"
                 android:background="@drawable/cell_shape" />
@@ -36,9 +36,10 @@
         <TableRow>
 
             <TextView
+                android:id="@+id/currentScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/player_name"
+                android:text="0"
                 android:paddingLeft="20px"
                 android:textSize="@dimen/table_text"
                 android:textColor="#FFF"
@@ -118,6 +119,7 @@
             android:background="@drawable/button_throw" />
 
         <Button
+            android:id="@+id/btnWriteScore"
             android:layout_width="300px"
             android:layout_height="wrap_content"
             android:text="@string/button_record"
