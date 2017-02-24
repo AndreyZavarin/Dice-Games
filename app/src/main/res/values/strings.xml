@@ -8,5 +8,8 @@
     <string name="button_throw">Бросок</string>
     <string name="button_record">Записать</string>
 
-    
+    //Меню
+    <string name="one_on_one_game">Один на один</string>
+    <string name="help_game">Правила</string>
+    <string name="exit_game">Выход</string>
 </resources>

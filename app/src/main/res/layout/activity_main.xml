@@ -60,6 +60,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="20px"
+        android:layout_marginRight="35px"
+        android:layout_marginLeft="35px"
+        android:layout_marginBottom="20px"
         android:paddingBottom="20px"
         android:layout_weight="1.01">
 
@@ -68,7 +72,10 @@
             android:id="@+id/ir_01"
             android:layout_marginTop="40dp"
             android:src="@drawable/ir_01"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            />
 
         <ImageView
             android:layout_width="100dp"
@@ -76,7 +83,9 @@
             android:layout_marginTop="40dp"
             android:layout_toRightOf="@id/ir_01"
             android:src="@drawable/ir_02"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"/>
 
         <ImageView
             android:layout_width="100dp"
@@ -84,7 +93,9 @@
             android:layout_marginTop="40dp"
             android:layout_toRightOf="@id/ir_02"
             android:src="@drawable/ir_03"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"/>
 
         <ImageView
             android:layout_width="100dp"
@@ -92,7 +103,9 @@
             android:layout_marginTop="40dp"
             android:layout_below="@id/ir_01"
             android:src="@drawable/ir_04"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"/>
 
         <ImageView
             android:layout_width="100dp"
@@ -101,7 +114,9 @@
             android:layout_below="@id/ir_01"
             android:layout_toRightOf="@id/ir_04"
             android:src="@drawable/ir_05"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"/>
     </RelativeLayout>
 
     <LinearLayout
