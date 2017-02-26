@@ -21,6 +21,14 @@
         android:background="@drawable/button_menu"/>
 
     <Button
+        android:id="@+id/newStyle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Новое оформление"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_menu" />
+
+    <Button
         android:id="@+id/exit_game"
         android:layout_width="200dp"
         android:layout_height="wrap_content"

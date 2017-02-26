@@ -21,6 +21,7 @@
         <activity android:name=".GameMenuActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".HelpGameActivity" />
+        <activity android:name=".NewStyle" />
     </application>
 
 </manifest>

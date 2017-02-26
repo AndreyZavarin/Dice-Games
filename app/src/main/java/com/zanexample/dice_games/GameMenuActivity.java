@@ -13,6 +13,7 @@ import android.widget.Button;
 public class GameMenuActivity extends AppCompatActivity {
     private Button buttonOneOnOneGame,
                    buttonHelpGame,
+                   buttonNewStyle,
                    buttonExitGame;
     //public final String NUMBER_PLAYERS = "com.zanexample.dice_games.NUMBER_PLAYERS";
     public Intent intent;
@@ -25,6 +26,8 @@ public class GameMenuActivity extends AppCompatActivity {
         buttonOneOnOneGame = (Button) findViewById(R.id.one_on_one_game);
         buttonHelpGame = (Button) findViewById(R.id.help_game);
         buttonExitGame = (Button) findViewById(R.id.exit_game);
+        buttonNewStyle = (Button) findViewById(R.id.newStyle);
+
 
         buttonOneOnOneGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,13 @@ public class GameMenuActivity extends AppCompatActivity {
                 intent = new Intent(GameMenuActivity.this, HelpGameActivity.class);
                 startActivity(intent);
 
+            }
+        });
+        buttonNewStyle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(GameMenuActivity.this, NewStyle.class);
+                startActivity(intent);
             }
         });
 

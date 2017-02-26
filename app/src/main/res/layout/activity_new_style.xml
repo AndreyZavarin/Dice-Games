@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:orientation="vertical"
+    android:gravity="top|center"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:weightSum="1">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="Игрок"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="Счет"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="Болты"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="Бочки"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="Вы"
+                android:paddingLeft="5dp"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="0/3"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="Компьютер - ПЕТЯ"
+                android:paddingLeft="5dp"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/table_text"
+                android:text="0/3"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:background="@drawable/cell_shape"/>
+        </TableRow>
+
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+
+        android:layout_marginBottom="20px"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:id="@+id/info_window"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:alpha="0.8">
+
+            <TextView
+                android:id="@+id/info_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Сумма очков: "
+                android:textSize="20dp"
+               />
+
+            <TextView
+                android:id="@+id/count_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/ir_01"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ir_01"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/ir_02"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/ir_01"
+                android:src="@drawable/ir_02"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/ir_03"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/ir_02"
+                android:src="@drawable/ir_03"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/ir_04"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/ir_01"
+                android:src="@drawable/ir_04"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/ir_05"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/ir_01"
+                android:layout_toRightOf="@id/ir_04"
+                android:src="@drawable/ir_05"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"/>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/combination_box"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:padding="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/colorAccent"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnDoThrow"
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:text="@string/button_throw"
+            android:layout_marginRight="40px"
+            android:background="@drawable/button_throw" />
+
+        <Button
+            android:id="@+id/btnWriteScore"
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:text="@string/button_record"
+            android:layout_marginLeft="40px"
+            android:background="@drawable/button_record" />
+    </LinearLayout>
+</LinearLayout>
