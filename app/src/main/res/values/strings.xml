@@ -12,4 +12,12 @@
     <string name="one_on_one_game">Один на один</string>
     <string name="help_game">Правила</string>
     <string name="exit_game">Выход</string>
+
+    //id
+    <string name="ir_01">ir_01</string>
+    <string name="ir_02">ir_02</string>
+    <string name="ir_03">ir_03</string>
+    <string name="ir_04">ir_04</string>
+    <string name="ir_05">ir_05</string>
+
 </resources>

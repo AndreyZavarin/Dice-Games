@@ -60,6 +60,7 @@
                 android:background="@drawable/cell_shape"/>
 
             <TextView
+                android:id="@+id/player_count_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/table_text"
@@ -124,7 +125,7 @@
     </TableLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="5dp"
@@ -152,7 +153,7 @@
                />
 
             <TextView
-                android:id="@+id/count_box"
+                android:id="@+id/current_score_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10"
@@ -161,63 +162,17 @@
                 android:textColor="#000"
                 />
         </LinearLayout>
-        <RelativeLayout
+        <LinearLayout
+
+            android:id="@+id/image_content"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
+            android:orientation="horizontal"
 
-            android:layout_marginBottom="10dp">
-            <ImageView
-                android:layout_width="100dp"
-                android:id="@+id/ir_01"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/ir_01"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"
-                />
+          >
 
-            <ImageView
-                android:layout_width="100dp"
-                android:id="@+id/ir_02"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@id/ir_01"
-                android:src="@drawable/ir_02"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"/>
 
-            <ImageView
-                android:layout_width="100dp"
-                android:id="@+id/ir_03"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@id/ir_02"
-                android:src="@drawable/ir_03"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"/>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:id="@+id/ir_04"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/ir_01"
-                android:src="@drawable/ir_04"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"/>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:id="@+id/ir_05"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/ir_01"
-                android:layout_toRightOf="@id/ir_04"
-                android:src="@drawable/ir_05"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"/>
-
-        </RelativeLayout>
+        </LinearLayout>
 
 
         <LinearLayout
@@ -241,7 +196,7 @@
         android:gravity="bottom|center"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/btnDoThrow"
+            android:id="@+id/btnDoThrowTest"
             android:layout_width="300px"
             android:layout_height="wrap_content"
             android:text="@string/button_throw"
@@ -249,7 +204,7 @@
             android:background="@drawable/button_throw" />
 
         <Button
-            android:id="@+id/btnWriteScore"
+            android:id="@+id/btnWriteScoreTest"
             android:layout_width="300px"
             android:layout_height="wrap_content"
             android:text="@string/button_record"

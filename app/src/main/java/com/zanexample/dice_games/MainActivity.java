@@ -106,6 +106,9 @@ public class MainActivity extends AppCompatActivity {
                     counter[valueOnCubes[i]]++;
                 }
 
+                System.out.println("----" + Arrays.toString(valueOnCubes));
+                System.out.println("111111" + Arrays.toString(counter));
+
                 resultOfAnazlyzeCubs = combinations(valueOnCubes, counter);
 
                 Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
