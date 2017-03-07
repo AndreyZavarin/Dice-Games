@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             valueOnCubes[i] = rndm.nextInt(6) + 1;
         }
 */
-
+//some text for test new branch commit
         doThrow.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 // }
 
                 valueOnCubes = throwCubes(numberOfCubes);
-
+//TODO посмотреть, если цикл начнется с единицы
                 //search of combs (to separate method)
                 //В массиве counter хранится количество повторений значений кубиков
                 for (int i = 0; i < valueOnCubes.length; i++) {
