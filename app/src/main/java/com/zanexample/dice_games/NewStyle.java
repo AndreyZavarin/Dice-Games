@@ -133,8 +133,9 @@ public class NewStyle extends AppCompatActivity {
 
 
 
-
+                //колическо остав=ся кубиков
                 numberOfCubes = resultOfAnazlyzeCubs[1];
+                //Количество очк
                 scoreOfCurrentThrow = resultOfAnazlyzeCubs[0];
 
 
