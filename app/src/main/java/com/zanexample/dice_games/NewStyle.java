@@ -52,15 +52,7 @@ public class NewStyle extends AppCompatActivity {
 
     int[] imageDrawable = {R.drawable.ir_01, R.drawable.ir_02, R.drawable.ir_03, R.drawable.ir_04, R.drawable.ir_05,  R.drawable.ir_05};
 
-    String[] messages = {"Сумма очков: ", "Очки сгорели!", " записывает очки", "Очки записаны", " бросает кости"};
-    int[] testCount = {10, 5, 100};
-
-    int[][]  textValueCube = {{1} , //10очков
-            {5}, //5очков
-            {1,1,1}
-    };
-
-    //int clickCount = 0;
+    //String[] messages = {"Сумма очков: ", "Очки сгорели!", " записывает очки", "Очки записаны", " бросает кости"};
 
     int defaultNumberOfCubes = 5;
     int numberOfCubes = defaultNumberOfCubes;
@@ -95,6 +87,7 @@ public class NewStyle extends AppCompatActivity {
                 //Значение кубиков
                 valueOnCubes = throwCubes(numberOfCubes);
 
+
                 System.out.println(Arrays.toString(valueOnCubes));
 
                 //В массиве counter хранится количество повторений значений кубиков
@@ -109,31 +102,25 @@ public class NewStyle extends AppCompatActivity {
                 //Добавленеи кубиков на страницу
                 DisplayDice.displayDice(image_content, valueOnCubes, imageView);
 
+                System.out.println("Score: " + resultOfAnazlyzeCubs[0]);
+                System.out.println("Count: " + resultOfAnazlyzeCubs[1]);
 
 
-                //Добавление коминации
-                LinearLayout linearLayout = new LinearLayout(NewStyle.this);
-                linearLayout.setGravity(Gravity.BOTTOM);
+                scoreOfCurrentThrow += resultOfAnazlyzeCubs[0];
 
-
-                for(int i = 0; i < resultOfAnazlyzeCubs.length; i++){
-
-                    ImageView image = new ImageView(NewStyle.this);
-                    image.setImageResource(imageDrawable[valueOnCubes[i]-1]);
-
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(30, 30);
-                    image.setLayoutParams(layoutParams);
-                    image.setMaxHeight(15);
-                    image.setMaxWidth(15);
-                    linearLayout.addView(image);
+                if(resultOfAnazlyzeCubs[0] != 0 && numberOfCubes > 0){
+                    //TODO разделить комбинации и счет (вынести из массива)
+                    //Добавленеи комбинаций в блок комбинаций
+                    DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 1, scoreOfCurrentThrow);
+                    //Добавленеи сообщения
+                    DisplayThrowsInfo.DisplayCombination(NewStyle.this, resultOfAnazlyzeCubs, imageDrawable, valueOnCubes,  combination_box);
+                }
+                else {
+                    DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 2, 0);
+                    combination_box.removeAllViews();
                 }
 
-
-
-
-
-
-                //колическо остав=ся кубиков
+                //колическо остався кубиков
                 numberOfCubes = resultOfAnazlyzeCubs[1];
                 //Количество очк
                 scoreOfCurrentThrow = resultOfAnazlyzeCubs[0];
@@ -155,56 +142,16 @@ public class NewStyle extends AppCompatActivity {
                     combination_box.removeAllViews();
                 }
 
-
-                currentScoreTest.setText(String.valueOf(scoreOfCurrentThrow));
-
                 System.out.println("Score: " + resultOfAnazlyzeCubs[0]);
                 System.out.println("Count: " + resultOfAnazlyzeCubs[1]);
 
-                TextView textView = new TextView(NewStyle.this);
-                textView.setText(" - " + resultOfAnazlyzeCubs[0]);
-                linearLayout.addView(textView);
-                combination_box.addView(linearLayout);
-
-                scoreOfCurrentThrow = scoreOfCurrentThrow + resultOfAnazlyzeCubs[0];
+                //scoreOfCurrentThrow = scoreOfCurrentThrow + resultOfAnazlyzeCubs[0];
                 System.out.println("CountALL: " +  scoreOfCurrentThrow);
-
 
                 //zeroing array counter
                 for (int i = 0; i < counter.length; i++) {
                     counter[i] = 0;
                 }
-
-
-
-
-                /*
-                System.out.println("CountK" + clickCount);
-                int tmpCount = testCount[clickCount];
-
-                int[] tmpValueCube =  textValueCube[clickCount];
-                System.out.println("----" + Arrays.toString(tmpValueCube));
-                LinearLayout linearLayout = new LinearLayout(NewStyle.this);
-                linearLayout.setGravity(Gravity.BOTTOM);
-
-
-                for(int i = 0; i < tmpValueCube.length; i++){
-
-                    ImageView imageView = new ImageView(NewStyle.this);
-                    imageView.setImageResource(imageDrawable[tmpValueCube[i]-1]);
-
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(30, 30);
-                    imageView.setLayoutParams(layoutParams);
-                    imageView.setMaxHeight(15);
-                    imageView.setMaxWidth(15);
-                    linearLayout.addView(imageView);
-                }
-
-                TextView textView = new TextView(NewStyle.this);
-                textView.setText(" - " + testCount[clickCount]);
-                linearLayout.addView(textView);
-                combination_box.addView(linearLayout);
-                clickCount++;*/
             }
         });
     }

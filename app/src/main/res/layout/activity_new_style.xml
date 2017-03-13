@@ -130,25 +130,23 @@
         android:orientation="vertical"
         android:layout_marginTop="5dp"
         android:gravity="center"
-
         android:layout_marginBottom="20px"
         android:paddingBottom="10dp">
 
         <LinearLayout
             android:id="@+id/info_window"
             android:padding="10dp"
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:background="#dfe2e6"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:alpha="0.8">
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/info_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Сумма очков: "
                 android:textSize="20dp"
                />
 
@@ -156,7 +154,6 @@
                 android:id="@+id/current_score_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="#000"
@@ -165,7 +162,8 @@
         <LinearLayout
 
             android:id="@+id/image_content"
-            android:layout_width="wrap_content"
+            android:paddingTop="20px"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="horizontal"
 
@@ -181,8 +179,8 @@
             android:layout_marginTop="10dp"
             android:padding="2dp"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="@color/colorAccent"
+            android:layout_height="100dp"
+            android:background="#dfe2e6"
             android:orientation="vertical">
 
 
