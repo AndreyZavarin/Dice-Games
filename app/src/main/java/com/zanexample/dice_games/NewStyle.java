@@ -1,5 +1,6 @@
 package com.zanexample.dice_games;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -16,25 +17,9 @@ import java.util.Random;
  * Created by Andrey on 24.02.2017.
  */
 
-/*
-* 1 комбинация (в виде массива)
-* сумма комбинации
-*
-*
-* Тестовые данные:
-*
-* 1) комбинация - 1
-*    Сумма очков - 10
-*    Сообщение: Сумма очков - 10
-*
-* 2) Комбинация  - нет комбинации
-*    Сообщение: очки сгорели
-*
-* */
-
 public class NewStyle extends AppCompatActivity {
-    LinearLayout infoWindow;
-    LinearLayout combination_box;
+    LinearLayout infoWindow; //блок сообщений
+    LinearLayout combination_box; //блок комбинаций
     LinearLayout image_content;
     TextView infoMessage;
     TextView currentScoreTest;
@@ -43,16 +28,11 @@ public class NewStyle extends AppCompatActivity {
     int[] resultOfAnazlyzeCubs;
     int scoreOfCurrentThrow;
 
-
     Button doThrow;
     Button writeScore;
-
-
     TextView playerCount;
 
     int[] imageDrawable = {R.drawable.ir_01, R.drawable.ir_02, R.drawable.ir_03, R.drawable.ir_04, R.drawable.ir_05,  R.drawable.ir_05};
-
-    //String[] messages = {"Сумма очков: ", "Очки сгорели!", " записывает очки", "Очки записаны", " бросает кости"};
 
     int defaultNumberOfCubes = 5;
     int numberOfCubes = defaultNumberOfCubes;
@@ -75,18 +55,15 @@ public class NewStyle extends AppCompatActivity {
         infoWindow = (LinearLayout) findViewById(R.id.info_window);
         image_content = (LinearLayout) findViewById(R.id.image_content);
 
-
-        //button = (Button) findViewById(R.id.btnDoThrow);
-
-
         doThrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                image_content.removeAllViews();
+                infoWindow.setVisibility(View.VISIBLE);
+                combination_box.setVisibility(View.VISIBLE);
 
+                image_content.removeAllViews();
                 //Значение кубиков
                 valueOnCubes = throwCubes(numberOfCubes);
-
 
                 System.out.println(Arrays.toString(valueOnCubes));
 
@@ -94,7 +71,6 @@ public class NewStyle extends AppCompatActivity {
                 for (int i = 0; i < valueOnCubes.length; i++) {
                     counter[valueOnCubes[i]]++;
                 }
-
                 resultOfAnazlyzeCubs = combinations(valueOnCubes, counter);
 
                 //Создание кубиков
@@ -105,26 +81,28 @@ public class NewStyle extends AppCompatActivity {
                 System.out.println("Score: " + resultOfAnazlyzeCubs[0]);
                 System.out.println("Count: " + resultOfAnazlyzeCubs[1]);
 
-
                 scoreOfCurrentThrow += resultOfAnazlyzeCubs[0];
 
-                if(resultOfAnazlyzeCubs[0] != 0 && numberOfCubes > 0){
-                    //TODO разделить комбинации и счет (вынести из массива)
+                int[] currentCombination = {1, 1, 1};  //Это текущая комбинация
+                int currentScore = 100; // Это значение текущей комбинации
+                int totalScore = 100; // Это общий счет (текущий счет)
+
+                //Если очки не сгорели
+                if(currentCombination[0] != 0 && currentScore > 0){
+                    //Вывод сообщения в блок сообщений (сумма очков)
+                    DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 1, totalScore, "");
+                    //DisplayThrowsInfo.DisplayCombination(NewStyle.this, resultOfAnazlyzeCubs, imageDrawable, valueOnCubes,  combination_box);
                     //Добавленеи комбинаций в блок комбинаций
-                    DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 1, scoreOfCurrentThrow);
-                    //Добавленеи сообщения
-                    DisplayThrowsInfo.DisplayCombination(NewStyle.this, resultOfAnazlyzeCubs, imageDrawable, valueOnCubes,  combination_box);
+                    DisplayThrowsInfo.DisplayCombination(NewStyle.this, currentCombination, currentScore, imageDrawable, combination_box);
                 }
                 else {
-                    DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 2, 0);
+                    //Вывод сообщения в блок сообщений(очки сгорели)
+                    DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 2, 0, "");
                     combination_box.removeAllViews();
                 }
 
-                //колическо остався кубиков
                 numberOfCubes = resultOfAnazlyzeCubs[1];
-                //Количество очк
                 scoreOfCurrentThrow = resultOfAnazlyzeCubs[0];
-
 
                 //Если кубики кончились, а ход не закончен, бросать заново все кубики
                 if (numberOfCubes == 0) {
@@ -135,8 +113,6 @@ public class NewStyle extends AppCompatActivity {
                 }
                 //Обнуление счёта, если ничего не выпало
                 if (scoreOfCurrentThrow == 0) {
-
-
                     scoreOfCurrentThrow = 0;
                     numberOfCubes = defaultNumberOfCubes;
                     combination_box.removeAllViews();
@@ -232,6 +208,4 @@ public class NewStyle extends AppCompatActivity {
         arrayReturns[1] = tmpForCountUsedCubs;
         return arrayReturns;
     }
-
-
 }
