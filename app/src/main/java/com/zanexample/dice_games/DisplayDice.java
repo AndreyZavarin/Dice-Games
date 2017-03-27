@@ -53,7 +53,7 @@ public class DisplayDice{
      */
     public static void displayDice(LinearLayout layout, int[] value, ImageView[] imageView){
         for (int i = 0; i < value.length; i++) {
-            System.out.println(value[i]-1);
+       //     System.out.println(value[i]-1);
             imageView[i].setImageResource(imageDrawable[value[i]-1]);
             layout.addView(imageView[i]);
         }
