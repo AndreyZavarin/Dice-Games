@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/table_text"
-                android:text="Вы"
+                android:text="Player 1"
                 android:paddingLeft="5dp"
                 android:textColor="#FFF"
                 android:background="@drawable/cell_shape"/>
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/table_text"
-                android:text="Компьютер - ПЕТЯ"
+                android:text="Player 2"
                 android:paddingLeft="5dp"
                 android:textColor="#FFF"
                 android:background="@drawable/cell_shape"/>

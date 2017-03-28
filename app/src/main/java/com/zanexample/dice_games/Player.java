@@ -6,5 +6,6 @@ package com.zanexample.dice_games;
 
 public class Player {
     int score;
+    String name;
 
 }

@@ -38,8 +38,7 @@ public class OperationsOnDice {
         for (int i = 0; i < temp.length(); i++){
             currentCombination[i] = temp.charAt(i) - '0';
         }
-        String asd = Arrays.toString(currentCombination);
-        System.out.println("currentCombinationTOINTARRAY  " + asd);
+
         return currentCombination;
     }
 
@@ -135,11 +134,6 @@ public class OperationsOnDice {
         }
         tmpForCountUsedCubs = tmpForCountUsedCubs + countOfValue[1];
         tmpForCountUsedCubs = numberOfCubes - tmpForCountUsedCubs;
-
-        System.out.println("currentCombinationString " + currentCombinationString);
-        System.out.println("scoreOfThrow " + scoreOfThrow);
-        String asd = Arrays.toString(countOfValue);
-        System.out.println("countOfValue " + asd);
 
         arrayReturns[0] = scoreOfThrow;
         arrayReturns[1] = tmpForCountUsedCubs;

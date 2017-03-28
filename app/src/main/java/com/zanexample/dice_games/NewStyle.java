@@ -72,16 +72,11 @@ public class NewStyle extends AppCompatActivity {
 
                 image_content.removeAllViews();
 
-                //_______________________________________________\\
-
                 OperationsOnDice playerOne = new OperationsOnDice();
 
-
                 //Значение кубиков
-                System.out.println("numbOfCubs:   " + numberOfCubes);
                 valueOnCubes = playerOne.throwCubes(numberOfCubes);
                 resultOfAnazlyzeCubs = playerOne.combinations(valueOnCubes, playerOne.getCountOfValue(valueOnCubes), numberOfCubes);
-                System.out.println("NumberOfCubes " + numberOfCubes);
                 //Создание кубиков
                 ImageView[] imageView = DisplayDice.createDice(NewStyle.this, numberOfCubes);
                 //Добавленеи кубиков на страницу
@@ -91,8 +86,6 @@ public class NewStyle extends AppCompatActivity {
 
                 int[] currentCombination = playerOne.currentCombinationToIntArray(resultOfAnazlyzeCubs[2]) ;//Это текущая комбинация
 
-                String intArrayString = Arrays.toString(currentCombination);
-                System.out.println("SOMETEXTFORVISION " + intArrayString);
                 int currentScore = resultOfAnazlyzeCubs[0]; // Это значение текущей комбинации
 
                 totalScore += currentScore; // Это общий счет (текущий счет)
@@ -112,7 +105,7 @@ public class NewStyle extends AppCompatActivity {
                 }
 
                 numberOfCubes = resultOfAnazlyzeCubs[1];
-                scoreOfCurrentThrow = resultOfAnazlyzeCubs[0];
+               // scoreOfCurrentThrow = resultOfAnazlyzeCubs[0];
 
                 //Если кубики кончились, а ход не закончен, бросать заново все кубики
                 if (numberOfCubes == 0) {
