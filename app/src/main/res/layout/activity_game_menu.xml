@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:text="@string/exit_game"
         android:layout_marginTop="10dp"
-        android:background="@drawable/button_menu" />
+        android:background="@drawable/button_menu"
+        android:elevation="0dp" />
 
 </LinearLayout>

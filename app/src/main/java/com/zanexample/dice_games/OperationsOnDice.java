@@ -49,7 +49,7 @@ public class OperationsOnDice {
         int scoreOfThrow = 0;
         int tmpForCountUsedCubs = 0;
         int currentCombination = 0;
-        String currentCombinationString = "0";
+        String currentCombinationString = "";
         int[] arrayReturns = {scoreOfThrow, tmpForCountUsedCubs, currentCombination};
 
         //Обработка цифры 1 и ее возможных комбинаций.
@@ -134,6 +134,10 @@ public class OperationsOnDice {
         }
         tmpForCountUsedCubs = tmpForCountUsedCubs + countOfValue[1];
         tmpForCountUsedCubs = numberOfCubes - tmpForCountUsedCubs;
+
+        if(currentCombinationString.length() == 0) {
+            currentCombinationString = "0";
+        }
 
         arrayReturns[0] = scoreOfThrow;
         arrayReturns[1] = tmpForCountUsedCubs;

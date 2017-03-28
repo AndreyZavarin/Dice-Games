@@ -71,6 +71,10 @@ public class NewStyle extends AppCompatActivity {
                 combination_box.setVisibility(View.VISIBLE);
 
                 image_content.removeAllViews();
+                //crutch
+                if(numberOfCubes == defaultNumberOfCubes) {
+                    combination_box.removeAllViews();
+                }
 
                 OperationsOnDice playerOne = new OperationsOnDice();
 
@@ -101,20 +105,20 @@ public class NewStyle extends AppCompatActivity {
                     //Вывод сообщения в блок сообщений(очки сгорели)
                     DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 2, 0, "");
                     totalScore = 0;
+                    numberOfCubes = defaultNumberOfCubes;
                     combination_box.removeAllViews();
                 }
 
                 numberOfCubes = resultOfAnazlyzeCubs[1];
-               // scoreOfCurrentThrow = resultOfAnazlyzeCubs[0];
 
                 //Если кубики кончились, а ход не закончен, бросать заново все кубики
                 if (numberOfCubes == 0) {
                     numberOfCubes = defaultNumberOfCubes;
-                    combination_box.removeAllViews();
-
+             //       combination_box.removeAllViews();
                 }
+
                 //Обнуление счёта, если ничего не выпало
-                if (scoreOfCurrentThrow == 0) {
+                if (resultOfAnazlyzeCubs[0] == 0) {
                     scoreOfCurrentThrow = 0;
                     numberOfCubes = defaultNumberOfCubes;
                     combination_box.removeAllViews();
@@ -125,10 +129,11 @@ public class NewStyle extends AppCompatActivity {
         writeScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v) {
-                if(totalScore != 0) {
-                    DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 3, 0, "");
-                }
                 playerScore = playerScore + totalScore;
+                if(totalScore != 0) {
+                    DisplayThrowsInfo.DisplayMessage(infoMessage, currentScoreTest, 4, 0, "");
+                }
+                playerCount.setText(String.valueOf(playerScore));
                 totalScore = 0;
                 combination_box.removeAllViews();
                 numberOfCubes = defaultNumberOfCubes;
