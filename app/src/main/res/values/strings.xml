@@ -4,9 +4,11 @@
     <string name="player">Игрок</string>
     <string name="score">Счет</string>
     <string name="player_name">Вы</string>
-    
+
+    //Кнопки
     <string name="button_throw">Бросок</string>
     <string name="button_record">Записать</string>
+    <string name="button_close">Закрыть</string>
 
     //Меню
     <string name="one_on_one_game">Один на один</string>
@@ -19,5 +21,10 @@
     <string name="ir_03">ir_03</string>
     <string name="ir_04">ir_04</string>
     <string name="ir_05">ir_05</string>
+
+
+
+    //Правила
+
 
 </resources>

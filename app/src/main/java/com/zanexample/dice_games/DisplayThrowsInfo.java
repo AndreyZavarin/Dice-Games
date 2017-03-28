@@ -1,7 +1,6 @@
 package com.zanexample.dice_games;
 
 import android.content.Context;
-import android.view.Display;
 import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,43 +12,38 @@ import android.widget.TextView;
 
 public class DisplayThrowsInfo {
 
-    static String[] messages = {"Сумма очков: ", "Очки сгорели!", " записывает очки", "Очки записаны", " бросает кости"};
+    static String[] messages = {"Сумма очков: ", "Очки сгорели!", ": записывает очки", "Очки записаны", "Кости бросает: "};
 
     /**
      * Метод отображения комбинаций
      *
      * @param context - контекст класса
-     * @param resultOfAnazlyzeCubs - массив количества очков одного броска и количество использованных кубиков
-     * @param imageDrawable - массив ссылок на изображение
-     * @param valueOnCubes - значение кубиков
      * @param currentCombination - текущая комбинация
      * @param currentScore - сумма очков текущего хода
+     * @param imageDrawable - массив ссылок на изображение
      * @param combination_box - поле для вывода комбинации
      */
-    public static void DisplayCombination(Context context, int[]resultOfAnazlyzeCubs, int[] imageDrawable, int[] valueOnCubes,
-                                          /*int[] currentCombination,*/ /*int currentScore,*/ LinearLayout  combination_box ){
+    public static void DisplayCombination(Context context, int[] currentCombination, int currentScore,
+                                              int[] imageDrawable, LinearLayout  combination_box ){
 
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setGravity(Gravity.BOTTOM);
 
         //Вывод комбинации в поле комбинаций
-        for(int i = 0; i < resultOfAnazlyzeCubs.length; i++){
-
+        for(int i = 0; i < currentCombination.length; i++){
             ImageView image = new ImageView(context);
-            image.setImageResource(imageDrawable[valueOnCubes[i]-1]);
+            image.setImageResource(imageDrawable[currentCombination[i]-1]);
 
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(30, 30);
+            layoutParams.rightMargin += 5;
             image.setLayoutParams(layoutParams);
             image.setMaxHeight(15);
             image.setMaxWidth(15);
             linearLayout.addView(image);
         }
 
-        /*System.out.println("Score: " + resultOfAnazlyzeCubs[0]);
-        System.out.println("Count: " + resultOfAnazlyzeCubs[1]);*/
-
         TextView textView = new TextView(context);
-        textView.setText(" - " + resultOfAnazlyzeCubs[0]);
+        textView.setText(" - " + currentScore);
         linearLayout.addView(textView);
         combination_box.addView(linearLayout);
     }
@@ -59,31 +53,37 @@ public class DisplayThrowsInfo {
      *
      * @param infoMessage - view для выводо сообщение
      * @param currentScoreTest - view для вывода счета
-     * @param оptions - тип сообщения
+     * @param messageType - тип сообщения
      * @param currentScore - текущий счет
+     * @param player - имя игрока
      */
-    public static void DisplayMessage(TextView infoMessage, TextView currentScoreTest, int оptions, int currentScore){
-        switch (оptions){
+    public static void DisplayMessage(TextView infoMessage, TextView currentScoreTest, int messageType, int currentScore, String player){
+        switch (messageType){
             //Cумма очков
             case 1:
-                infoMessage.setText(messages[оptions-1]);
+                infoMessage.setText(messages[messageType-1]);
                 currentScoreTest.setText(currentScore + "");
                 break;
             //Очки скгорели
             case 2:
-                infoMessage.setText(messages[оptions-1]);
+                infoMessage.setText(messages[messageType-1]);
                 currentScoreTest.setText("");
                 break;
             //Игрок записывает очки
             case 3:
+                infoMessage.setText(player + messages[messageType-1]);
+                currentScoreTest.setText("");
                 break;
             //Очки записаны
             case 4:
+                infoMessage.setText(messages[messageType-1]);
+                currentScoreTest.setText("");
                 break;
-            //Бросаем кости =)
+            //Бросает кости
             case 5:
+                infoMessage.setText(messages[messageType-1] + player);
+                currentScoreTest.setText("");
                 break;
-
         }
     }
 }

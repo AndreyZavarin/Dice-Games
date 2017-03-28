@@ -18,10 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameMenuActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".HelpGameActivity" />
-        <activity android:name=".NewStyle" />
+        <activity android:name=".GameMenuActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".HelpGameActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".NewStyle"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
